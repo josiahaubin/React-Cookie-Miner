@@ -1,3 +1,5 @@
+Creating a Cookie Miner game from React Learnings! Hope you have fun playing!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
