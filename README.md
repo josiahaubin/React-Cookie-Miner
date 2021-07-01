@@ -1,4 +1,4 @@
-Creating a Cookie Miner game from React Learnings! Hope you have fun playing!
+# Creating a Cookie Miner game from React Learnings! Hope you have fun playing!
 
 # Getting Started with Create React App
 
