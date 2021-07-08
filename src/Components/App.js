@@ -12,8 +12,8 @@ function App() {
       <Container fluid>
         <Row className="App-header">
           <Col xs>
-            <img src={logo} className="App-logo" alt="logo" />
             <h1>React Cookie Miner</h1>
+            <img src={logo} className="App-logo" alt="logo" />
           </Col>
         </Row>
         <CookieSheet />
