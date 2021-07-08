@@ -1,0 +1,11 @@
+.cookieImg {
+    margin-top: 10vh;
+}
+
+img {
+    cursor: pointer;
+}
+
+img:active {
+    transform: scale(0.95, 0.95);
+}

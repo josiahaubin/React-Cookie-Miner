@@ -1,3 +1,5 @@
+import CookiePan from './CookiePan';
+
 import logo from '../logo.svg';
 import '../CSS/App.css';
 
@@ -8,6 +10,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>React Cookie Miner</h1>
       </header>
+      <CookiePan />
     </div>
   );
 }
