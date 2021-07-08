@@ -1,0 +1,12 @@
+.cookieArea {
+    margin-top: 5vh;
+}
+
+.cookie {
+    cursor: pointer;
+    margin-top: 5vh;
+}
+
+.cookie:active {
+    transform: scale(0.95, 0.95);
+}

@@ -20,10 +20,6 @@
   border: #61DAFB solid 5px;
   border-style: ridge;
   min-height: 30vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
 }
 
