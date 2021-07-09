@@ -1,8 +1,7 @@
 import cookiePic from "../Media/cookie.png"
 import "../CSS/CookieSheet.css"
 import { useState } from "react";
-import { Row } from "react-bootstrap";
-import Col from 'react-bootstrap/Col'
+import { Row, Col, Card, Button, CardColumns } from "react-bootstrap";
 
 function CookieSheet() {
     const [numberOfCookies, setNumberOfCookies] = useState(0);
@@ -30,17 +29,64 @@ function CookieSheet() {
                 </Col>
                 <Col xs={2}>
                     {/* Sidebar */}
-                    <div>
-                        <h5>Rolling Pin</h5>
-                        <h5>Picaxe</h5>
-                        <h5>Drill</h5>
-                        <h5>Plasma Cutter</h5>
-                        <h5>Lightsaber</h5>
-                    </div>
+                        {/* Rolling Pin */}
+                        <Card className="cardColor mb-1" border="light">
+                            <Card.Img variant="top" src="" />
+                            <Card.Body>
+                                <Card.Title>Rolling Pin</Card.Title>
+                                <Card.Text>
+                                    Helps you break up pieces of the cookie. <b>+1</b> per click. <br/> <b>Cost: 20 Cookies</b>
+                                </Card.Text>
+                                <Button variant="primary">Go somewhere</Button>
+                            </Card.Body>
+                        </Card>
+                        {/* Pickaxe */}
+                        <Card className="cardColor mb-1" border="light">
+                            <Card.Img variant="top" src="" />
+                            <Card.Body>
+                                <Card.Title>Pickaxe</Card.Title>
+                                <Card.Text>
+                                    Helps you chip away at the cookie. <b>+2</b> per click. <br/> <b>Cost: 40 Cookies</b>
+                                </Card.Text>
+                                <Button variant="primary">Go somewhere</Button>
+                            </Card.Body>
+                        </Card>
+                        {/* Drill */}
+                        <Card className="cardColor mb-1" border="light">
+                            <Card.Img variant="top" src="" />
+                            <Card.Body>
+                                <Card.Title>Drill</Card.Title>
+                                <Card.Text>
+                                    Helps you chip away at the cookie. <b>+4</b> per click. <br/> <b>Cost: 60 Cookies</b>
+                                </Card.Text>
+                                <Button variant="primary">Go somewhere</Button>
+                            </Card.Body>
+                        </Card>
+                        {/* Plasma Cutter */}
+                        <Card className="cardColor mb-1" border="light">
+                            <Card.Img variant="top" src="" />
+                            <Card.Body>
+                                <Card.Title>Plasma Cutter</Card.Title>
+                                <Card.Text>
+                                    Helps you chip away at the cookie. <b>+6</b> per click. <br/> <b>Cost: 80 Cookies</b>
+                                </Card.Text>
+                                <Button variant="primary">Go somewhere</Button>
+                            </Card.Body>
+                        </Card>
+                        {/* Lightsaber */}
+                        <Card className="cardColor mb-1" border="light">
+                            <Card.Img variant="top" src="" />
+                            <Card.Body>
+                                <Card.Title>Lightsaber</Card.Title>
+                                <Card.Text>
+                                    Helps you chip away at the cookie. <b>+8</b> per click. <br/> <b>Cost: 100 Cookies</b>
+                                </Card.Text>
+                                <Button variant="primary">Go somewhere</Button>
+                            </Card.Body>
+                        </Card>
                 </Col>
             </Row>
         </div>
-        
     )
 }
 

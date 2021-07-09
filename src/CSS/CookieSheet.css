@@ -10,3 +10,7 @@
 .cookie:active {
     transform: scale(0.95, 0.95);
 }
+
+.cardColor {
+    background-color: #6A768A !important;
+}
