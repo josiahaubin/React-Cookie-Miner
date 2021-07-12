@@ -17,10 +17,15 @@
 }
 
 .App-header {
+  min-height: 20vh;
+  font-size: calc(10px + 2vmin);
+}
+
+.Header-content {
+  display: inline-flex;
+  align-items: center;
   border: #61DAFB solid 5px;
   border-style: ridge;
-  min-height: 30vh;
-  font-size: calc(10px + 2vmin);
 }
 
 @keyframes App-logo-spin {
