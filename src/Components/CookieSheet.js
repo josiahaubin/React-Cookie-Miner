@@ -20,26 +20,31 @@ function CookieSheet() {
         switch (itemNum) {
             case 0:
                 setMultiplier(multiplier + 1)
+                setNumberOfCookies(numberOfCookies - rollingPinCost)
                 setRollingPinCost(rollingPinCost * (multiplier + 1))
                 break;
 
             case 1:
                 setMultiplier(multiplier + 2)
+                setNumberOfCookies(numberOfCookies - pickAxeCost)
                 setPickAxeCost(pickAxeCost * (multiplier + 1))
                 break;
 
             case 2:
                 setMultiplier(multiplier + 4)
+                setNumberOfCookies(numberOfCookies - drillCost)
                 setDrillCost(drillCost * (multiplier + 1))
                 break;
 
             case 3:
                 setMultiplier(multiplier + 6)
+                setNumberOfCookies(numberOfCookies - plasmaCutterCost)
                 setPlasmaCutterCost(plasmaCutterCost * (multiplier + 1))
                 break;
 
             case 4:
                 setMultiplier(multiplier + 8)
+                setNumberOfCookies(numberOfCookies - lightsaberCost)
                 setLightsaberCost(lightsaberCost * (multiplier * 1))
                 break;
         
@@ -78,7 +83,7 @@ function CookieSheet() {
                                 <Card.Text>
                                     Helps you break up pieces of the cookie. <br/> <b>+1</b> per click. <br/> <b>Cost: {rollingPinCost} Cookies</b>
                                 </Card.Text>
-                                <Button onClick={() => buyItem(0)}>Buy Me!</Button>
+                                <Button onClick={() => buyItem(0)} disabled={numberOfCookies < rollingPinCost}>Buy Me!</Button>
                             </Card.Body>
                         </Card>
                         {/* Pickaxe */}
@@ -88,7 +93,7 @@ function CookieSheet() {
                                 <Card.Text>
                                     Helps you chip away at the cookie. <br/> <b>+2</b> per click. <br/> <b>Cost: {pickAxeCost} Cookies</b>
                                 </Card.Text>
-                                <Button onClick={() => buyItem(1)}>Buy Me!</Button>
+                                <Button onClick={() => buyItem(1)} disabled={numberOfCookies < pickAxeCost}>Buy Me!</Button>
                             </Card.Body>
                         </Card>
                         {/* Drill */}
@@ -98,7 +103,7 @@ function CookieSheet() {
                                 <Card.Text>
                                     Helps you drill into the cookie. <br/> <b>+4</b> per click. <br/> <b>Cost: {drillCost} Cookies</b>
                                 </Card.Text>
-                                <Button onClick={() => buyItem(2)}>Buy Me!</Button>
+                                <Button onClick={() => buyItem(2)} disabled={numberOfCookies < drillCost}>Buy Me!</Button>
                             </Card.Body>
                         </Card>
                         {/* Plasma Cutter */}
@@ -108,7 +113,7 @@ function CookieSheet() {
                                 <Card.Text>
                                     Helps you slice away big chunks of the cookie the cookie. <br/> <b>+6</b> per click. <br/> <b>Cost: {plasmaCutterCost} Cookies</b>
                                 </Card.Text>
-                                <Button onClick={() => buyItem(3)}>Buy Me!</Button>
+                                <Button onClick={() => buyItem(3)} disabled={numberOfCookies < plasmaCutterCost}>Buy Me!</Button>
                             </Card.Body>
                         </Card>
                         {/* Lightsaber */}
@@ -118,7 +123,7 @@ function CookieSheet() {
                                 <Card.Text>
                                     Its a lightsaber...no further explanation needed. <br/> <b>+8</b> per click. <br/> <b>Cost: {lightsaberCost} Cookies</b>
                                 </Card.Text>
-                                <Button onClick={() => buyItem(4)}>Buy Me!</Button>
+                                <Button onClick={() => buyItem(4)} disabled={numberOfCookies < lightsaberCost}>Buy Me!</Button>
                             </Card.Body>
                         </Card>
                 </Col>
