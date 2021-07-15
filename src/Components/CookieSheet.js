@@ -6,6 +6,11 @@ import { Row, Col, Card, Button } from "react-bootstrap";
 function CookieSheet() {
     const [numberOfCookies, setNumberOfCookies] = useState(0);
     const [multiplier, setMultiplier] = useState(1);
+    const [rollingPinCost, setRollingPinCost] = useState(20);
+    const [pickAxeCost, setPickAxeCost] = useState(40);
+    const [drillCost, setDrillCost] = useState(60);
+    const [plasmaCutterCost, setPlasmaCutterCost] = useState(80);
+    const [lightsaberCost, setLightsaberCost] = useState(100);
 
     function updateNumberOfCookies(){
         setNumberOfCookies(numberOfCookies + multiplier)
@@ -15,22 +20,27 @@ function CookieSheet() {
         switch (itemNum) {
             case 0:
                 setMultiplier(multiplier + 1)
+                setRollingPinCost(rollingPinCost * (multiplier + 1))
                 break;
 
             case 1:
                 setMultiplier(multiplier + 2)
+                setPickAxeCost(pickAxeCost * (multiplier + 1))
                 break;
 
             case 2:
                 setMultiplier(multiplier + 4)
+                setDrillCost(drillCost * (multiplier + 1))
                 break;
 
             case 3:
                 setMultiplier(multiplier + 6)
+                setPlasmaCutterCost(plasmaCutterCost * (multiplier + 1))
                 break;
 
             case 4:
                 setMultiplier(multiplier + 8)
+                setLightsaberCost(lightsaberCost * (multiplier * 1))
                 break;
         
             default:
@@ -66,7 +76,7 @@ function CookieSheet() {
                             <Card.Body>
                                 <Card.Title>Rolling Pin</Card.Title>
                                 <Card.Text>
-                                    Helps you break up pieces of the cookie. <b>+1</b> per click. <br/> <b>Cost: 20 Cookies</b>
+                                    Helps you break up pieces of the cookie. <br/> <b>+1</b> per click. <br/> <b>Cost: {rollingPinCost} Cookies</b>
                                 </Card.Text>
                                 <Button onClick={() => buyItem(0)}>Buy Me!</Button>
                             </Card.Body>
@@ -76,7 +86,7 @@ function CookieSheet() {
                             <Card.Body>
                                 <Card.Title>Pickaxe</Card.Title>
                                 <Card.Text>
-                                    Helps you chip away at the cookie. <b>+2</b> per click. <br/> <b>Cost: 40 Cookies</b>
+                                    Helps you chip away at the cookie. <br/> <b>+2</b> per click. <br/> <b>Cost: {pickAxeCost} Cookies</b>
                                 </Card.Text>
                                 <Button onClick={() => buyItem(1)}>Buy Me!</Button>
                             </Card.Body>
@@ -86,7 +96,7 @@ function CookieSheet() {
                             <Card.Body>
                                 <Card.Title>Drill</Card.Title>
                                 <Card.Text>
-                                    Helps you chip away at the cookie. <b>+4</b> per click. <br/> <b>Cost: 60 Cookies</b>
+                                    Helps you drill into the cookie. <br/> <b>+4</b> per click. <br/> <b>Cost: {drillCost} Cookies</b>
                                 </Card.Text>
                                 <Button onClick={() => buyItem(2)}>Buy Me!</Button>
                             </Card.Body>
@@ -96,7 +106,7 @@ function CookieSheet() {
                             <Card.Body>
                                 <Card.Title>Plasma Cutter</Card.Title>
                                 <Card.Text>
-                                    Helps you chip away at the cookie. <b>+6</b> per click. <br/> <b>Cost: 80 Cookies</b>
+                                    Helps you slice away big chunks of the cookie the cookie. <br/> <b>+6</b> per click. <br/> <b>Cost: {plasmaCutterCost} Cookies</b>
                                 </Card.Text>
                                 <Button onClick={() => buyItem(3)}>Buy Me!</Button>
                             </Card.Body>
@@ -106,7 +116,7 @@ function CookieSheet() {
                             <Card.Body>
                                 <Card.Title>Lightsaber</Card.Title>
                                 <Card.Text>
-                                    Helps you chip away at the cookie. <b>+8</b> per click. <br/> <b>Cost: 100 Cookies</b>
+                                    Its a lightsaber...no further explanation needed. <br/> <b>+8</b> per click. <br/> <b>Cost: {lightsaberCost} Cookies</b>
                                 </Card.Text>
                                 <Button onClick={() => buyItem(4)}>Buy Me!</Button>
                             </Card.Body>
