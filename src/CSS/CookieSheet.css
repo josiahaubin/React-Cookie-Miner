@@ -17,6 +17,10 @@
     height: 15vh;
 }
 
+.card:hover {
+    box-shadow: 5px 10px 18px black;
+}
+
 .cardContents {
     margin: 0px !important;
 }
