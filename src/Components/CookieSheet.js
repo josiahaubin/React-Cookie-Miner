@@ -6,6 +6,11 @@ import { Row, Col, Card, Button } from "react-bootstrap";
 function CookieSheet() {
     const [numberOfCookies, setNumberOfCookies] = useState(0);
     const [multiplier, setMultiplier] = useState(1);
+    const [rollingPinCost, setRollingPinCost] = useState(20);
+    const [pickAxeCost, setPickAxeCost] = useState(40);
+    const [drillCost, setDrillCost] = useState(60);
+    const [plasmaCutterCost, setPlasmaCutterCost] = useState(80);
+    const [lightsaberCost, setLightsaberCost] = useState(100);
 
     function updateNumberOfCookies(){
         setNumberOfCookies(numberOfCookies + multiplier)
@@ -15,22 +20,32 @@ function CookieSheet() {
         switch (itemNum) {
             case 0:
                 setMultiplier(multiplier + 1)
+                setNumberOfCookies(numberOfCookies - rollingPinCost)
+                setRollingPinCost(rollingPinCost * (multiplier + 1))
                 break;
 
             case 1:
                 setMultiplier(multiplier + 2)
+                setNumberOfCookies(numberOfCookies - pickAxeCost)
+                setPickAxeCost(pickAxeCost * (multiplier + 1))
                 break;
 
             case 2:
                 setMultiplier(multiplier + 4)
+                setNumberOfCookies(numberOfCookies - drillCost)
+                setDrillCost(drillCost * (multiplier + 1))
                 break;
 
             case 3:
                 setMultiplier(multiplier + 6)
+                setNumberOfCookies(numberOfCookies - plasmaCutterCost)
+                setPlasmaCutterCost(plasmaCutterCost * (multiplier + 1))
                 break;
 
             case 4:
                 setMultiplier(multiplier + 8)
+                setNumberOfCookies(numberOfCookies - lightsaberCost)
+                setLightsaberCost(lightsaberCost * (multiplier * 1))
                 break;
         
             default:
@@ -62,53 +77,53 @@ function CookieSheet() {
                 <Col xs={2}>
                     {/* Sidebar */}
                         {/* Rolling Pin */}
-                        <Card className="cardColor mb-1" border="light">
+                        <Card className="card mb-1" border="light">
                             <Card.Body>
-                                <Card.Title>Rolling Pin</Card.Title>
-                                <Card.Text>
-                                    Helps you break up pieces of the cookie. <b>+1</b> per click. <br/> <b>Cost: 20 Cookies</b>
+                                <Card.Title className="cardContents">Rolling Pin</Card.Title>
+                                <Card.Text className="cardContents">
+                                    <b>+1</b> per click. <br/> <b>Cost: {rollingPinCost} Cookies</b>
                                 </Card.Text>
-                                <Button onClick={() => buyItem(0)}>Buy Me!</Button>
+                                <Button onClick={() => buyItem(0)} disabled={numberOfCookies < rollingPinCost}>Buy Me!</Button>
                             </Card.Body>
                         </Card>
                         {/* Pickaxe */}
-                        <Card className="cardColor mb-1" border="light">
+                        <Card className="card mb-1" border="light">
                             <Card.Body>
-                                <Card.Title>Pickaxe</Card.Title>
-                                <Card.Text>
-                                    Helps you chip away at the cookie. <b>+2</b> per click. <br/> <b>Cost: 40 Cookies</b>
+                                <Card.Title className="cardContents">Pickaxe</Card.Title>
+                                <Card.Text className="cardContents">
+                                    <b>+2</b> per click. <br/> <b>Cost: {pickAxeCost} Cookies</b>
                                 </Card.Text>
-                                <Button onClick={() => buyItem(1)}>Buy Me!</Button>
+                                <Button onClick={() => buyItem(1)} disabled={numberOfCookies < pickAxeCost}>Buy Me!</Button>
                             </Card.Body>
                         </Card>
                         {/* Drill */}
-                        <Card className="cardColor mb-1" border="light">
+                        <Card className="card mb-1" border="light">
                             <Card.Body>
-                                <Card.Title>Drill</Card.Title>
-                                <Card.Text>
-                                    Helps you chip away at the cookie. <b>+4</b> per click. <br/> <b>Cost: 60 Cookies</b>
+                                <Card.Title className="cardContents">Drill</Card.Title>
+                                <Card.Text className="cardContents">
+                                    <b>+4</b> per click. <br/> <b>Cost: {drillCost} Cookies</b>
                                 </Card.Text>
-                                <Button onClick={() => buyItem(2)}>Buy Me!</Button>
+                                <Button onClick={() => buyItem(2)} disabled={numberOfCookies < drillCost}>Buy Me!</Button>
                             </Card.Body>
                         </Card>
                         {/* Plasma Cutter */}
-                        <Card className="cardColor mb-1" border="light">
+                        <Card className="card mb-1" border="light">
                             <Card.Body>
-                                <Card.Title>Plasma Cutter</Card.Title>
-                                <Card.Text>
-                                    Helps you chip away at the cookie. <b>+6</b> per click. <br/> <b>Cost: 80 Cookies</b>
+                                <Card.Title className="cardContents">Plasma Cutter</Card.Title>
+                                <Card.Text className="cardContents">
+                                    <b>+6</b> per click. <br/> <b>Cost: {plasmaCutterCost} Cookies</b>
                                 </Card.Text>
-                                <Button onClick={() => buyItem(3)}>Buy Me!</Button>
+                                <Button onClick={() => buyItem(3)} disabled={numberOfCookies < plasmaCutterCost}>Buy Me!</Button>
                             </Card.Body>
                         </Card>
                         {/* Lightsaber */}
-                        <Card className="cardColor mb-1" border="light">
+                        <Card className="card mb-1" border="light">
                             <Card.Body>
-                                <Card.Title>Lightsaber</Card.Title>
-                                <Card.Text>
-                                    Helps you chip away at the cookie. <b>+8</b> per click. <br/> <b>Cost: 100 Cookies</b>
+                                <Card.Title className="cardContents">Lightsaber</Card.Title>
+                                <Card.Text className="cardContents">
+                                    <b>+8</b> per click. <br/> <b>Cost: {lightsaberCost} Cookies</b>
                                 </Card.Text>
-                                <Button onClick={() => buyItem(4)}>Buy Me!</Button>
+                                <Button onClick={() => buyItem(4)} disabled={numberOfCookies < lightsaberCost}>Buy Me!</Button>
                             </Card.Body>
                         </Card>
                 </Col>
