@@ -1,6 +1,6 @@
 import cookiePic from "../Media/cookie.png"
 import "../CSS/CookieSheet.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Row, Col, Card, Button } from "react-bootstrap";
 
 function CookieSheet() {
@@ -11,41 +11,50 @@ function CookieSheet() {
     const [drillCost, setDrillCost] = useState(60);
     const [plasmaCutterCost, setPlasmaCutterCost] = useState(80);
     const [lightsaberCost, setLightsaberCost] = useState(100);
+    const [siblingBought, setSiblingBought] = useState(true);
 
-    function updateNumberOfCookies(){
-        setNumberOfCookies(numberOfCookies + multiplier)
-    }
+    useEffect(() => {
+        console.log("useEffect checking in...")
+        setInterval(incrementCookies, 5000);
+        
+        function incrementCookies() {
+            if(siblingBought === true){            
+                
+            }
+        }
+    });
+
 
     function buyItem(itemNum){
         switch (itemNum) {
             case 0:
                 setMultiplier(multiplier + 1)
                 setNumberOfCookies(numberOfCookies - rollingPinCost)
-                setRollingPinCost(rollingPinCost * (multiplier + 1))
+                setRollingPinCost(rollingPinCost + (multiplier + 1))
                 break;
 
             case 1:
                 setMultiplier(multiplier + 2)
                 setNumberOfCookies(numberOfCookies - pickAxeCost)
-                setPickAxeCost(pickAxeCost * (multiplier + 1))
+                setPickAxeCost(pickAxeCost + (multiplier + 1))
                 break;
 
             case 2:
                 setMultiplier(multiplier + 4)
                 setNumberOfCookies(numberOfCookies - drillCost)
-                setDrillCost(drillCost * (multiplier + 1))
+                setDrillCost(drillCost + (multiplier + 1))
                 break;
 
             case 3:
                 setMultiplier(multiplier + 6)
                 setNumberOfCookies(numberOfCookies - plasmaCutterCost)
-                setPlasmaCutterCost(plasmaCutterCost * (multiplier + 1))
+                setPlasmaCutterCost(plasmaCutterCost + (multiplier + 1))
                 break;
 
             case 4:
                 setMultiplier(multiplier + 8)
                 setNumberOfCookies(numberOfCookies - lightsaberCost)
-                setLightsaberCost(lightsaberCost * (multiplier * 1))
+                setLightsaberCost(lightsaberCost + (multiplier * 1))
                 break;
         
             default:
@@ -71,7 +80,7 @@ function CookieSheet() {
                     <div className="cookieArea">
                         <h1>Number of Cookies: {numberOfCookies}</h1>
                         <h6>Current Multiplier: {multiplier}</h6>
-                        <img src={cookiePic} alt="Cookie" onClick={() => updateNumberOfCookies()} className="cookie"/>
+                        <img src={cookiePic} alt="Cookie" onClick={() => setNumberOfCookies(numberOfCookies + multiplier)} className="cookie"/>
                     </div>
                 </Col>
                 <Col xs={2}>
