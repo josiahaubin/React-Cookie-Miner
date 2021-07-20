@@ -1,6 +1,6 @@
 import cookiePic from "../Media/cookie.png"
 import "../CSS/CookieSheet.css"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Row, Col, Card, Button } from "react-bootstrap";
 
 function CookieSheet() {
@@ -11,19 +11,7 @@ function CookieSheet() {
     const [drillCost, setDrillCost] = useState(60);
     const [plasmaCutterCost, setPlasmaCutterCost] = useState(80);
     const [lightsaberCost, setLightsaberCost] = useState(100);
-    const [siblingBought, setSiblingBought] = useState(true);
-
-    useEffect(() => {
-        console.log("useEffect checking in...")
-        setInterval(incrementCookies, 5000);
-        
-        function incrementCookies() {
-            if(siblingBought === true){            
-                
-            }
-        }
-    });
-
+    const [siblingBought, setSiblingBought] = useState(false);
 
     function buyItem(itemNum){
         switch (itemNum) {
@@ -56,6 +44,12 @@ function CookieSheet() {
                 setNumberOfCookies(numberOfCookies - lightsaberCost)
                 setLightsaberCost(lightsaberCost + (multiplier * 1))
                 break;
+
+            case 5:
+                setSiblingBought(true);
+                setMultiplier(multiplier - 100);
+                setNumberOfCookies(numberOfCookies + 1000)
+                break;
         
             default:
                 break;
@@ -68,7 +62,15 @@ function CookieSheet() {
                 <Col xs={2}>
                     {/* Sidebar */}
                     <div>
-                        <h5>Sibling</h5>
+                    <Card className="card mb-1" border="light">
+                            <Card.Body>
+                                <Card.Title className="cardContents">Sibling</Card.Title>
+                                <Card.Text className="cardContents">
+                                    <b>+1000</b> cookies.<br/> <b>Cost: 100 Multiplier</b>
+                                </Card.Text>
+                                <Button onClick={() => buyItem(5)} disabled={multiplier < 100 || siblingBought === true}>Buy Me!</Button>
+                            </Card.Body>
+                        </Card>
                         <h5>Friend</h5>
                         <h5>Dad</h5>
                         <h5>Mom</h5>
