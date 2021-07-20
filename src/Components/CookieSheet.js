@@ -47,6 +47,7 @@ function CookieSheet() {
 
             case 5:
                 setSiblingBought(true);
+                //Need to add some form of error check so mutliplier cannot be 0 or negative
                 setMultiplier(multiplier - 100);
                 setNumberOfCookies(numberOfCookies + 1000)
                 break;
