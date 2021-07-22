@@ -12,6 +12,10 @@ function CookieSheet() {
     const [plasmaCutterCost, setPlasmaCutterCost] = useState(80);
     const [lightsaberCost, setLightsaberCost] = useState(100);
     const [siblingBought, setSiblingBought] = useState(false);
+    const [friendBought, setFriendBought] = useState(false);
+    const [dadBought, setDadBought] = useState(false);
+    const [momBought, setMomBought] = useState(false);
+    const [grandmaBought, setGrandmaBought] = useState(false);
 
     function buyItem(itemNum){
         switch (itemNum) {
@@ -47,9 +51,32 @@ function CookieSheet() {
 
             case 5:
                 setSiblingBought(true);
-                //Need to add some form of error check so mutliplier cannot be 0 or negative
                 setMultiplier(multiplier - 100);
                 setNumberOfCookies(numberOfCookies + 1000)
+                break;
+
+            case 6:
+                setFriendBought(true);
+                setMultiplier(multiplier - 200);
+                setNumberOfCookies(numberOfCookies + 2000)
+                break;
+
+            case 7:
+                setDadBought(true);
+                setMultiplier(multiplier - 300);
+                setNumberOfCookies(numberOfCookies + 3000)
+                break;
+
+            case 8:
+                setMomBought(true);
+                setMultiplier(multiplier - 400);
+                setNumberOfCookies(numberOfCookies + 4000)
+                break;
+
+            case 9:
+                setGrandmaBought(true);
+                setMultiplier(multiplier - 1000);
+                setNumberOfCookies(numberOfCookies + 10000)
                 break;
         
             default:
@@ -69,13 +96,45 @@ function CookieSheet() {
                                 <Card.Text className="cardContents">
                                     <b>+1000</b> cookies.<br/> <b>Cost: 100 Multiplier</b>
                                 </Card.Text>
-                                <Button onClick={() => buyItem(5)} disabled={multiplier < 100 || siblingBought === true}>Buy Me!</Button>
+                                <Button onClick={() => buyItem(5)} disabled={multiplier < 100 || siblingBought === true || multiplier - 100 === 0}>Buy Me!</Button>
                             </Card.Body>
                         </Card>
-                        <h5>Friend</h5>
-                        <h5>Dad</h5>
-                        <h5>Mom</h5>
-                        <h5>Grandma</h5>
+                        <Card className="card mb-1" border="light">
+                            <Card.Body>
+                                <Card.Title className="cardContents">Friend</Card.Title>
+                                <Card.Text className="cardContents">
+                                    <b>+2000</b> cookies.<br/> <b>Cost: 200 Multiplier</b>
+                                </Card.Text>
+                                <Button onClick={() => buyItem(6)} disabled={multiplier < 200 || friendBought === true || multiplier - 200 === 0}>Buy Me!</Button>
+                            </Card.Body>
+                        </Card>
+                        <Card className="card mb-1" border="light">
+                            <Card.Body>
+                                <Card.Title className="cardContents">Dad</Card.Title>
+                                <Card.Text className="cardContents">
+                                    <b>+3000</b> cookies.<br/> <b>Cost: 300 Multiplier</b>
+                                </Card.Text>
+                                <Button onClick={() => buyItem(7)} disabled={multiplier < 300 || dadBought === true || multiplier - 300 === 0}>Buy Me!</Button>
+                            </Card.Body>
+                        </Card>
+                        <Card className="card mb-1" border="light">
+                            <Card.Body>
+                                <Card.Title className="cardContents">Mom</Card.Title>
+                                <Card.Text className="cardContents">
+                                    <b>+4000</b> cookies.<br/> <b>Cost: 400 Multiplier</b>
+                                </Card.Text>
+                                <Button onClick={() => buyItem(8)} disabled={multiplier < 400 || momBought === true || multiplier - 400 === 0}>Buy Me!</Button>
+                            </Card.Body>
+                        </Card>
+                        <Card className="card mb-1" border="light">
+                            <Card.Body>
+                                <Card.Title className="cardContents">Grandma</Card.Title>
+                                <Card.Text className="cardContents">
+                                    <b>+10000</b> cookies.<br/> <b>Cost: 1000 Multiplier</b>
+                                </Card.Text>
+                                <Button onClick={() => buyItem(9)} disabled={multiplier < 1000 || grandmaBought === true || multiplier - 1000 === 0}>Buy Me!</Button>
+                            </Card.Body>
+                        </Card>
                     </div>
                 </Col>
                 <Col xs={8}>
